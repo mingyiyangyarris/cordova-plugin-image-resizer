@@ -208,7 +208,7 @@ public class ImageResizer extends CordovaPlugin {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, quality, out);
                 out.flush();
                 out.close();
-//                this.writeExif(file);
+                this.writeExif(file);
             } catch (Exception e) {
                 Log.e("Protonet", e.toString());
             }
