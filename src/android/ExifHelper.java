@@ -58,6 +58,7 @@ public class ExifHelper {
     private String model = null;
     private String orientation = null;
     private String whiteBalance = null;
+    private String imageDescription = null;
 
 
     private ExifInterface inFile = null;
@@ -106,6 +107,7 @@ public class ExifHelper {
         this.model = inFile.getAttribute(ExifInterface.TAG_MODEL);
         this.orientation = inFile.getAttribute(ExifInterface.TAG_ORIENTATION);
         this.whiteBalance = inFile.getAttribute(ExifInterface.TAG_WHITE_BALANCE);
+        this.imageDescription = inFile.getAttribute(ExifInterface.TAG_IMAGE_DESCRIPTION);
     }
 
 
@@ -177,6 +179,9 @@ public class ExifHelper {
         }
         if (this.whiteBalance != null) {
             this.outFile.setAttribute(ExifInterface.TAG_WHITE_BALANCE, this.whiteBalance);
+        }
+        if (this.imageDescription != null) {
+            this.outFile.setAttribute(ExifInterface.TAG_IMAGE_DESCRIPTION, this.imageDescription);
         }
 
         Log.d(LOG_TAG, "writeExifData this: " + this);
